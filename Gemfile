@@ -15,6 +15,10 @@ gem 'bcrypt'
 gem 'base58'
 gem 'rack-flash3', require: 'rack-flash'
 
+group :development do
+gem 'dotenv'
+end
+
 
 group :test do
   gem 'launchy'

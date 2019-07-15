@@ -14,7 +14,7 @@ class Url < ActiveRecord::Base
         # base = "0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZacbdefghigklmnopqrstuvwxyz"
         # new_base= base.split("")
         # base1 = new_base.sample(4).join
-        "https://localhost:9393/#{shorten_id}"
+        "<%= ENV['BASE_URL'] %>/#{shorten_id}"
     end
 
     def self.decode_base58(base58)
