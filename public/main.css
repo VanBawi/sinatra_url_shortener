@@ -1,0 +1,22 @@
+.textbox{
+    width :80%;
+    margin-left :50px;
+}
+
+h2{
+    height: 200px;
+    text-align: center;
+    color:white;
+}
+
+.col {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+html, body{
+    background-color :#6dc4f0;
+}
+.col{
+    color :black;
+}

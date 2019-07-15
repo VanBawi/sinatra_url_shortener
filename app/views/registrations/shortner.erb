@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>URL Shortener</title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="/shortner.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+              <ul class="nav navbar-nav">
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+              <li><a href="#">URL Shortner by Jacko</a></li>
+            </ul>
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="/sessions/logout"> <span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+            </ul>
+      </div>
+    </nav>
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="main-container">
+        <div class="inner cover">
+          <span class="glyphicon glyphicon-link"></span>
+          <h1>URL Shortener</h1>
+          <h4>your-website-url</h4>
+
+          <form action="/urls" method="post">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="input-group input-group-lg">
+                <input type="text" name="url" id="url" class="form-control" placeholder="Paste a link...">
+                <span class="input-group-btn">
+                  <button class="btn btn-shorten" type="submit">SHORTEN</button>
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div id="link"></div>
+            </div>
+          </div>
+          </form>
+          <br>
+          <br>
+            <% current_user.urls.each do |each_url| %>
+              <ul>
+                <li>
+                  Original URL: <a href="<%= each_url.url %>" target="_blank"><%= each_url.url %></a>
+                  <br>
+                  Shortened URL: <a href="<%= each_url.shorten %>" target="_blank"><%= each_url.shorten %></a>
+                  <br>
+                  <br>
+                  <form action="/urls/<%= each_url.id %>" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="sumibt">Delete</button>
+                  </form>
+                </li>
+              </ul>
+            <%end%>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="javascript/shorten.js"></script>
+</body>
+
+</html>
