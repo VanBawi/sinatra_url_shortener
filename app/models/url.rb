@@ -11,9 +11,6 @@ class Url < ActiveRecord::Base
     end
 
     def shorten
-        # base = "0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZacbdefghigklmnopqrstuvwxyz"
-        # new_base= base.split("")
-        # base1 = new_base.sample(4).join
         "http://localhost9393#{shorten_id}"
     end
 
