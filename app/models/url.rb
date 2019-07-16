@@ -11,7 +11,7 @@ class Url < ActiveRecord::Base
     end
 
     def shorten
-        "http://localhost9393#{shorten_id}"
+        "http://localhost9393/#{shorten_id}"
     end
 
     def self.decode_base58(base58)

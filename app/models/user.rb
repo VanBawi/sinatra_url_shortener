@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   validates_presence_of :name, :email
   has_many :urls
+
+  
   include BCrypt
 
   def password
